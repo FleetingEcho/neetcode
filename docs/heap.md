@@ -29,7 +29,7 @@ heapq.heappop(heap)
 
 heapq.heappushpop(heap, item)
 
-功能：将 item 放入堆 heap，然后弹出并返回堆中最小的元素。该函数比先调用 heappush() 后调用 heappop() 更高效。
+功能：将 item 放入堆 heap，然后弹出并返回堆中"最小的元素"。该函数比先调用 heappush() 后调用 heappop() 更高效。
 复杂度：O(log N)，其中N为堆 heap 的大小。
 
 
