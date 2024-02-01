@@ -546,64 +546,65 @@ joined_str = " ".join(list1)
 
 ```python
 创建列表:
-
 list1 = [1, 2, 3, 4, 5]
+
 访问元素:
-
 element = list1[0]  # 访问第一个元素
+
 修改元素:
-
 list1[0] = 10  # 修改第一个元素
-添加元素:
 
+添加元素:
 list1.append(6)  # 在列表末尾添加元素
 list1.insert(1, 7)  # 在指定位置插入元素
-合并列表:
 
+合并列表:
 list2 = [7, 8, 9]
 list1.extend(list2)  # 将list2中的元素添加到list1中
-删除元素:
 
+删除元素:
 del list1[0]  # 删除指定位置的元素
 list1.remove(5)  # 删除第一个出现的指定元素
+list1.pop()  # 删除并返回最后一个元素
+list1.pop(0)  #删除并返回第一个元素
+
 列表长度:
-
 length = len(list1)
-列表排序:
 
+列表排序:
 list1.sort()  # 升序排列
 list1.sort(reverse=True)  # 降序排列
+
 反转列表:
-
 list1.reverse()
+
 查找元素:
-
 index = list1.index(3)  # 返回元素的索引
+
 统计元素出现次数:
-
 count = list1.count(3)
+
 清空列表:
-
 list1.clear()
+
 列表复制:
-
 list2 = list1.copy()
+
 使用切片:
-
 sublist = list1[1:3]  # 获取部分列表
-列表遍历（普通for循环）:
 
+列表遍历（普通for循环）:
 for item in list1:
     print(item)
-列表遍历（带索引）:
 
+列表遍历（带索引）:
 for index, item in enumerate(list1):
     print(index, item)
+
 列表推导式（用于创建新列表）:
-
 squared = [x**2 for x in list1]
-列表过滤（通过推导式）:
 
+列表过滤（通过推导式）:
 even_numbers = [x for x in list1 if x % 2 == 0]
 ```
 
@@ -812,6 +813,10 @@ item = dict1.popitem()
 value = dict1.pop("key2", "default value")
 更新字典:
 dict1.update({"key2": "new value2", "key4": "value4"})
+
+
+
+node.setdefault('char',{}) 等价于 node=node['char'], if"char" not in node: node["char"]={}
 ```
 
 
@@ -945,6 +950,7 @@ length = len(set1)
 删除元素:
 set1.remove(3)  # 删除指定元素，如果不存在则抛出KeyError
 set1.discard(4)  # 删除指定元素，如果不存在不会抛出错误
+set1.discard(target_item) #删除指定元素
 
 随机删除一个元素并返回:
 element = set1.pop()
