@@ -1,6 +1,6 @@
 from operator import add, mul, sub
 from typing import List
-
+import re
 
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
@@ -40,3 +40,28 @@ int(num1 / float(num2))
 无论如何，浮点数除法都会得到一个浮点数，比如 "-3 / 2.0 = 1.5" ；
 此时再取整，就会得到整数部分，即 float(-1.5) = -1 。
 """
+
+
+#或用正则
+
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        op_to_binary_fn = {
+            "+": lambda x, y: add(x,y),
+            "-": lambda x, y: sub(x,y),
+            "*": lambda x, y: mul(x,y),
+             "/": lambda x, y: int(x / float(y)),
+        }
+
+        stack = list()
+        for token in tokens:
+            if bool(re.match(r'^-?\d+$', token)): #包括正负数， 其他symbol被排除了
+                num = int(token)
+            else:
+                num2 = stack.pop()
+                num1 = stack.pop()
+                num = op_to_binary_fn[token](num1, num2)
+            stack.append(num)
+
+        return stack[0]
