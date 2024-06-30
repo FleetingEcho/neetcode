@@ -143,6 +143,20 @@ Python 基本数据类型包括：
 
 ### **2.1 字符串**
 
+字符串拼接的办法
+```python
+name = "World"
+result = f"Hello {name}"
+
+parts = ["Hello", "World"]
+result = ''.join(part for part in parts)
+print(result)  # 输出: HelloWorld
+
+name = "World"
+result = "Hello {}".format(name)
+print(result)  # 输出: Hello World
+
+```
 
 ```python
 my_str="FLEETING_SOUNd_123_!"
@@ -815,7 +829,8 @@ value = dict1.pop("key2", "default value")
 dict1.update({"key2": "new value2", "key4": "value4"})
 
 
-
+defaultdict
+defaultdict 是 Python collections 模块中的一个有用的子类，它可以自动为字典中的每个键分配一个默认值。使用 defaultdict 可以避免在访问字典时出现 KeyError 错误，并使代码更简洁。
 node.setdefault('char',{}) 等价于 node=node['char'], if"char" not in node: node["char"]={}
 ```
 
